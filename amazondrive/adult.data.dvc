@@ -1,0 +1,5 @@
+outs:
+- md5: 975c9eb269583f090e364c4b6a09f71e
+  size: 3974458
+  path: adult.data
+  isexec: true
