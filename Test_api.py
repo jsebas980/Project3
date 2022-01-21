@@ -13,7 +13,7 @@ import pytest
 
 
 def test_get():
-    response = requests.get("http://127.0.0.1:8000")
+    response = requests.get("https://projectjs3.herokuapp.com/")
     assert response.status_code == 200
 
 
@@ -37,7 +37,7 @@ def test_post_predict():
             "hours-per-week": 45,
             "native-country": "United-States"
         }
-    response=requests.post(url="http://127.0.0.1:8000/predict", json=body)
+    response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
 
 
@@ -61,7 +61,7 @@ def test_post_predict2():
             "hours-per-week": 40,
             "native-country": "United-States"
         }
-    response=requests.post(url="http://127.0.0.1:8000/predict", json=body)
+    response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
 
 
