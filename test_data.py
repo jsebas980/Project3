@@ -13,7 +13,7 @@ import scipy.stats
 
 
 def test_row_count():
-    data=pd.read_csv("./amazondrive/census.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
     assert 30000 < data.shape[0] < 150000
 
 
@@ -21,7 +21,7 @@ def test_row_count():
 
 
 def test_column_names():
-    data=pd.read_csv("./amazondrive/Census_cleaned.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
     expected_colums = [
         "age",
         "workclass",
@@ -49,7 +49,7 @@ def test_column_names():
 
 
 def test_relationship():
-    data=pd.read_csv("./amazondrive/Census_cleaned.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
     known_categories = [" Not-in-family", " Husband", " Wife", " Own-child", " Unmarried", " Other-relative"]
 
     relation = set(data['relationship'].unique())
