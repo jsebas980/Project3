@@ -13,6 +13,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    environment: 
+      name: DVC2
+      url: https://github.com
 
     steps:
     - uses: actions/checkout@v2
