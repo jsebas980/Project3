@@ -79,7 +79,7 @@ def test_precision():
     ]
 
     X, y, encoder, lb = process_data(
-    data, categorical_features=cat_features, label=" salary", training=True
+    data, categorical_features=cat_features, label="salary", training=True
     )
 
     X_train, X_test, y_train, y_test = train_test_split(
