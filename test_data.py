@@ -65,7 +65,7 @@ def test_precision():
     file = 'ml/finalized_model.sav'
     model = pickle.load(open(file, 'rb'))
 
-    data=pd.read_csv('data/Census_cleaned_copy.csv')
+    data=pd.read_csv('./amazondrive/Census_cleaned_copy.csv')
 
     cat_features = [
     "workclass",
