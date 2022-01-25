@@ -58,7 +58,37 @@ def test_relationship():
     assert set(known_categories) == set(relation)
 
 
-# In[ ]:
+def test_precision():
+    file = 'ml/finalized_model.sav'
+    model = pickle.load(open(filename, 'rb'))
+
+    data=pd.read_csv('data/Census_cleaned_copy.csv')
+
+    cat_features = [
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "native-country",
+    ]
+
+    X, y, encoder, lb = process_data(
+    data, categorical_features=cat_features, label=" salary", training=True
+    )
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42)
+
+    preds=model.predict(X_test)
+
+    precision, recall, fbeta = compute_model_metrics(y_test,preds)
+
+    assert precision > 0.1
+
+
 
 
 
