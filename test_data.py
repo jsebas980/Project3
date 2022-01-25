@@ -3,7 +3,10 @@
 
 # In[3]:
 
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold
 from ml.data import process_data
+from model.model import train_model, compute_model_metrics
 import pandas as pd
 import numpy as np
 import scipy.stats
