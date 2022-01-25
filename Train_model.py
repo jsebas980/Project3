@@ -59,31 +59,31 @@ def train_model():
 
 
 
-#Function for calculating descriptive stats on slices of the dataset
+    #Function for calculating descriptive stats on slices of the dataset
 
-def slice_data(df, cat_features, encoder, lb, model):
-    for cat in cat_features:
-        print("Category: ", cat)
-        for cls in df[cat].unique():
-            print(cls)
-            df_temp = df[df[cat] == cls]
+    def slice_data(df, cat_features, encoder, lb, model):
+        for cat in cat_features:
+            print("Category: ", cat)
+            for cls in df[cat].unique():
+                print(cls)
+                df_temp = df[df[cat] == cls]
             
-            X_temp, y_temp, encoder1, lb1 = process_data(
-            df_temp, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb,
-            )
+                X_temp, y_temp, encoder1, lb1 = process_data(
+                df_temp, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb,
+                )
             
-            preds=model.predict(X_temp)
+                preds=model.predict(X_temp)
     
-            precision, recall, fbeta=compute_model_metrics(y_temp, preds)
+                precision, recall, fbeta=compute_model_metrics(y_temp, preds)
         
-            with open("ml/slice_output.txt", 'a') as f:
-                f.write("\nCategory: "+ cat +", "+ cls+"\n")
-                f.write(" -Precision: " + str(precision)+"\n")
-                f.write(" -Recall: " + str(recall)+"\n")
-                f.write(" -Fbeta: " + str(fbeta)+"\n")
+                with open("ml/slice_output.txt", 'a') as f:
+                    f.write("\nCategory: "+ cat +", "+ cls+"\n")
+                    f.write(" -Precision: " + str(precision)+"\n")
+                    f.write(" -Recall: " + str(recall)+"\n")
+                    f.write(" -Fbeta: " + str(fbeta)+"\n")
 
 
-slice_data(census_data,cat_features,encoder,lb,model)
+    slice_data(census_data,cat_features,encoder,lb,model)
 
 
 if '__main__' == __name__:
