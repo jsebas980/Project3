@@ -22,7 +22,7 @@ def predict():
         }
     response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     print(f"Status Code:   {response.status_code}")
-    print (f"The Prediction is:  + {response.text}")
+    print (f"The Prediction is:   {response.text}")
 
 if __name__ == "__main__":
     predict()
