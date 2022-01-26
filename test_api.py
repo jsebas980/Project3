@@ -39,7 +39,7 @@ def test_post_predict():
         }
     response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
-    assert response.json() == ">50K"
+    assert response.json() == "The prediction of Salary according to the features is: >50K"
 
 # In[6]:
 
@@ -63,7 +63,7 @@ def test_post_predict2():
         }
     response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
-    assert response.json() == "<=50K"
+    assert response.json() == "The prediction of Salary according to the features is: <=50K"
 
 
 
