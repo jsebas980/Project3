@@ -15,7 +15,7 @@ import pytest
 def test_get():
     response = requests.get("https://projectjs3.herokuapp.com/")
     assert response.status_code == 200
-    assert response.json() == [0]
+    assert response.json() == "Greetings, Welcome to the api for module 3 of course Machine learning devops engineer"
 
 # In[5]:
 
