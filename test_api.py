@@ -15,31 +15,31 @@ import pytest
 def test_get():
     response = requests.get("https://projectjs3.herokuapp.com/")
     assert response.status_code == 200
-
+    assert response.json() == [0]
 
 # In[5]:
 
 
 def test_post_predict():
     body={
-            "age": 34,
-            "workclass": "Self-emp-not-inc",
-            "fnlgt": 292175,
-            "education": "Masters",
-            "education-num": 14,
-            "marital-status": "Divorced",
-            "occupation": "Exec-managerial",
-            "relationship": "Unmarried",
+            "age": 20,
+            "workclass": "Private",
+            "fnlgt": 168187,
+            "education": "Some-college",
+            "education-num": 10,
+            "marital-status": "Never-married",
+            "occupation": "Other-service",
+            "relationship": "Other-relative",
             "race": "White",
             "sex": "Female",
-            "capital-gain": 0,
+            "capital-gain": 4416,
             "capital-loss": 0,
-            "hours-per-week": 45,
+            "hours-per-week": 25,
             "native-country": "United-States"
         }
     response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
-
+    assert response.json() == [0]
 
 # In[6]:
 
@@ -63,9 +63,9 @@ def test_post_predict2():
         }
     response=requests.post(url="https://projectjs3.herokuapp.com/predict", json=body)
     assert response.status_code == 200
+    assert response.json() == [0]
 
 
-# In[ ]:
 
 
 
