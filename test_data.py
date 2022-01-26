@@ -16,7 +16,7 @@ import pickle
 
 
 def test_row_count():
-    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned.csv")
     assert 30000 < data.shape[0] < 150000
 
 
@@ -24,7 +24,7 @@ def test_row_count():
 
 
 def test_column_names():
-    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned.csv")
     expected_colums = [
         "age",
         "workclass",
@@ -52,7 +52,7 @@ def test_column_names():
 
 
 def test_relationship():
-    data=pd.read_csv("./amazondrive/Census_cleaned_copy.csv")
+    data=pd.read_csv("./amazondrive/Census_cleaned.csv")
     known_categories = [" Not-in-family", " Husband", " Wife", " Own-child", " Unmarried", " Other-relative"]
 
     relation = set(data['relationship'].unique())
@@ -65,7 +65,7 @@ def test_precision():
     file = 'ml/finalized_model.sav'
     model = pickle.load(open(file, 'rb'))
 
-    data=pd.read_csv('./amazondrive/Census_cleaned_copy.csv')
+    data=pd.read_csv('./amazondrive/Census_cleaned.csv')
 
     cat_features = [
     "workclass",
